@@ -1,0 +1,20 @@
+name: Test Workflow
+on:
+  schedule:
+    - cron: '*/3 * * * *'
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  Spring:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+  Default_Job:
+    needs: Spring
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
