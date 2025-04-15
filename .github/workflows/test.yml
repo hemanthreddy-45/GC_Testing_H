@@ -1,0 +1,12 @@
+name: test/test
+on:
+#   # The shortest interval you can run scheduled workflows is once every 5 minutes.
+#   period: '180'
+#   description: trigger
+jobs:
+  Default-Stage-Spring:
+    runs-on: ubuntu-latest
+    steps:
+  Default-Stage-Default-Job:
+    runs-on: ubuntu-latest
+    steps:
