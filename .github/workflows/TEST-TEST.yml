@@ -1,0 +1,20 @@
+name: Test Pipeline
+on:
+  schedule:
+    - cron: '*/3 * * * *'
+  push:
+  pull_request:
+jobs:
+  spring:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+  default_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+permissions:
+  contents: read
+  pull-requests: write
