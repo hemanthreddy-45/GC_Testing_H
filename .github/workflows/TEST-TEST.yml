@@ -1,0 +1,46 @@
+name: Installation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          repository: org/repo
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # If there are specific Bamboo tasks, they need to be described here
+      # For example, if there are shell script tasks in Bamboo, include them here
+      - name: Run Shell Tasks
+        run: |
+          # Add shell commands from Bamboo here
+          echo "Running shell tasks..."
+
+      # Example of using environment variables from Bamboo
+      - name: Set Environment Variables
+        run: |
+          echo "Setting environment variables..."
+        env:
+          EXAMPLE_VAR: ${{ secrets.EXAMPLE_SECRET }}  # Replace with actual secret
+
+      # If JUnit parsing is required, utilize a GitHub Action or script to handle it
+      # Example using a testing framework
+      - name: Run Tests
+        run: |
+          echo "Running tests..."
+          # Add test commands here
+
+      # For artifact handling, use GitHub Actions artifacts
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: path/to/artifact/*  # Adjust the path as needed
+
